@@ -26,12 +26,12 @@ const App = () => {
           <div className="hidden md:flex items-center space-x-8">
             <a href="#home" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Home</a>
             <a href="#about" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">About</a>
-            <a href="#portfolio" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Portfolio</a>
+            {/* <a href="#portfolio" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Portfolio</a> */}
             <a href="#services" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Services</a>
             <a href="#contact" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Contact</a>
            
             <a
-              href="#"
+              href="./assets/eMMacHRisCv.pdf"
               className="bg-gradient-to-r from-purple-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium cursor-pointer !rounded-button whitespace-nowrap"
             >
               Download CV
@@ -81,7 +81,7 @@ const App = () => {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#portfolio"
-                className="bg-white text-purple-800 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 font-bold cursor-pointer !rounded-button whitespace-nowrap"
+                className="bg-white text-purple-800 px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 font-bold cursor-pointer !rounded-button whitespace-nowrap hover:bg-purple-600 hover:text-white"
               >
                 View My Work
               </a>
