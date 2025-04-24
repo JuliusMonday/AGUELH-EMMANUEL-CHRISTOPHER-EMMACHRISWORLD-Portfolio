@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -9,49 +10,75 @@ const App = () => {
   }, []);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode(prev => !prev);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-800'} transition-colors duration-300`}>
+    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-800'}`}>
       {/* Header/Navigation */}
-      <header className={`fixed w-full z-50 ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md transition-colors duration-300`}>
+      <header className={`fixed w-full z-50 shadow-md transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-blue-600">
-              Emma Chris
-            </h1>
-          </div>
-         
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Home</a>
-            <a href="#about" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">About</a>
-            {/* <a href="#portfolio" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Portfolio</a> */}
-            <a href="#services" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Services</a>
-            <a href="#contact" className="hover:text-purple-700 font-medium cursor-pointer whitespace-nowrap">Contact</a>
-           
+          {/* Logo */}
+          <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-blue-600">
+            Emma Chris
+          </h1>
+
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <a href="#home" className="hover:text-purple-700 font-medium">Home</a>
+            <a href="#about" className="hover:text-purple-700 font-medium">About</a>
+            <a href="#services" className="hover:text-purple-700 font-medium">Services</a>
+            <a href="#contact" className="hover:text-purple-700 font-medium">Contact</a>
             <a
               href="./assets/eMMacHRisCv.pdf"
-              className="bg-gradient-to-r from-purple-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium cursor-pointer !rounded-button whitespace-nowrap"
+              className="bg-gradient-to-r from-purple-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium"
             >
               Download CV
             </a>
-           
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 cursor-pointer !rounded-button whitespace-nowrap"
+              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors"
               aria-label="Toggle dark mode"
             >
               <i className={`fas ${darkMode ? 'fa-sun' : 'fa-moon'} text-lg ${darkMode ? 'text-yellow-300' : 'text-gray-700'}`}></i>
             </button>
-          </div>
-         
+          </nav>
+
+          {/* Mobile Toggle */}
           <div className="md:hidden flex items-center">
-            <button className="text-2xl cursor-pointer !rounded-button whitespace-nowrap">
-              <i className="fas fa-bars"></i>
+            <button onClick={toggleMenu} aria-label="Toggle menu" className="text-2xl focus:outline-none">
+              <i className={`fas ${menuOpen ? 'fa-times' : 'fa-bars'}`}></i>
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <nav className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? 'max-h-screen' : 'max-h-0'}`}>
+          <div className={`flex flex-col px-4 py-4 space-y-4 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>            
+            <a href="#home" className="hover:text-purple-700 font-medium">Home</a>
+            <a href="#about" className="hover:text-purple-700 font-medium">About</a>
+            <a href="#services" className="hover:text-purple-700 font-medium">Services</a>
+            <a href="#contact" className="hover:text-purple-700 font-medium">Contact</a>
+            <a
+              href="./assets/eMMacHRisCv.pdf"
+              className="bg-gradient-to-r from-purple-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium"
+            >
+              Download CV
+            </a>
+            <button
+              onClick={toggleDarkMode}
+              className="flex items-center p-2 rounded-lg bg-gray-200 dark:bg-gray-700 transition-colors w-max"
+              aria-label="Toggle dark mode"
+            >
+              <i className={`fas ${darkMode ? 'fa-sun' : 'fa-moon'} text-lg mr-2 ${darkMode ? 'text-yellow-300' : 'text-gray-700'}`}></i>
+              <span>{darkMode ? 'Light Mode' : 'Dark Mode'}</span>
+            </button>
+          </div>
+        </nav>
       </header>
 
       {/* Hero Section */}
