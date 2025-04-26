@@ -104,7 +104,7 @@ const App = () => {
             </h1>
             <h2 className="text-2xl md:text-3xl font-light mb-2">(Emma Chris)</h2>
             <h3 className="text-xl md:text-2xl font-medium mb-6 text-blue-200">
-              Computer Engineering Graduate | Full-Stack Engineer
+            Full-Stack Engineer | Computer Network Engineer
             </h3>
             <p className="text-lg mb-8 max-w-xl">
               Detail-oriented and analytical computer professional with expertise in software development,
@@ -149,6 +149,7 @@ const App = () => {
             <div className="md:w-1/2">
               <h3 className="text-2xl font-bold mb-4 text-purple-800">Computer Engineering Professional</h3>
               <p className="text-lg mb-6">
+              Emma Chris as fondly called is a Computer Engineering graduate, Technology Enthusiast, Full-Stack Engineer, Leadership Oriented, Business Oriented, Computer Network Engineer, System Troubleshooting Professional as well as a member of the National Association of Technologists in Engineering (NATE), Rotaract Club International.<br></br><br></br>
                 Detail-oriented and analytical computer professional with a strong foundation in software
                 development (full-stack engineer), network management, and system troubleshooting. Eager to
                 leverage technical expertise and problem-solving skills in a challenging IT role to enhance
