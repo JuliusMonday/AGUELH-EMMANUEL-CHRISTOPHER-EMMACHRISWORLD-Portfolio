@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
+import "./App.css"
+import aboutPhoto from "./assets/sitePic.png"
+import cvPdf from './assets/eMMacHRisCv.pdf';
+// import heroPhoto = "./assets/emmachrisPhoto2.jpg"
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,11 +37,14 @@ const App = () => {
             <a href="#services" className="hover:text-purple-700 font-medium">Services</a>
             <a href="#contact" className="hover:text-purple-700 font-medium">Contact</a>
             <a
-              href="./assets/eMMacHRisCv.pdf"
-              className="bg-gradient-to-r from-purple-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium"
-            >
-              Download CV
-            </a>
+                href={cvPdf}
+                download="eMMacHRisCv.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="bg-gradient-to-r from-purple-800 to-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 font-medium"
+              >
+                Download CV
+              </a>
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition-colors"
@@ -84,9 +90,8 @@ const App = () => {
       {/* Hero Section */}
       <section id="home" className="relative pt-20 min-h-screen flex items-center">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
+          className="absolute inset-0 z-0" id='emmaPics'
           style={{
-            backgroundImage: `url('https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20a%20young%20African%20man%20in%20business%20attire%20with%20a%20clean%20modern%20gradient%20background%20in%20purple%20and%20blue%20tones%2C%20perfect%20for%20a%20portfolio%20website%20hero%20section.%20The%20image%20has%20space%20on%20the%20left%20for%20text%20overlay%20and%20shows%20the%20subject%20looking%20confident%20and%20approachable%20with%20a%20subtle%20smile&width=1440&height=800&seq=1&orientation=landscape')`,
             opacity: 0.9
           }}
         ></div>
@@ -134,9 +139,10 @@ const App = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
               <img
-                src="https://readdy.ai/api/search-image?query=Professional%20portrait%20of%20a%20young%20African%20man%20in%20business%20casual%20attire%20working%20on%20computer%2C%20focused%20expression%2C%20modern%20office%20environment%20with%20tech%20elements%2C%20high%20quality%20professional%20photography%20with%20soft%20lighting%20and%20blurred%20background&width=600&height=800&seq=2&orientation=portrait"
+                src={aboutPhoto}
                 alt="Emma Chris Professional Portrait"
-                className="rounded-lg shadow-xl w-full h-auto object-cover object-top"
+                className="rounded-lg shadow-xl w-full h-auto object-cover object-top "
+                id='side-photo'
               />
             </div>
            
@@ -414,7 +420,7 @@ const App = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-lg">Location</h4>
-                      <p>Oko, Anambra State, Nigeria</p>
+                      <p>Awka, Anambra State, Nigeria</p>
                     </div>
                   </div>
                  

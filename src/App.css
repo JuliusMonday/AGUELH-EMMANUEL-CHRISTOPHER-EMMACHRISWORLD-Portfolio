@@ -1,0 +1,15 @@
+#emmaPics{
+  background-image: url("./assets/Emmapics.png");
+  background-position:inherit;
+  background-repeat: no-repeat;
+  background-size:cover;
+  overflow: hidden;
+}
+
+ #side-photo{
+
+}
+/*
+#main-side-photo{
+  background-image: url("./assets/emmachrisPhoto3.jpeg");
+} */
